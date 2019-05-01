@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="JooYoung Seo" />
+
+<meta name="date" content="2019-04-29" />
+
+<title>How to Use Youtubecaption</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">How to Use Youtubecaption</h1>
+<h4 class="author">JooYoung Seo</h4>
+<h4 class="date">2019-04-29</h4>
+
+
+
+<div id="youtubecaption" class="section level1">
+<h1>youtubecaption</h1>
+<!-- badges: start -->
+<p><a href="https://travis-ci.org/jooyoungseo/youtubecaption"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MCIgaGVpZ2h0PSIyMCI+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4Mj0iMCIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIuMSIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3Qgcng9IjMiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHJ4PSIzIiB4PSIzNyIgd2lkdGg9IjUzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjNGMxIi8+PHBhdGggZmlsbD0iIzRjMSIgZD0iTTM3IDBoNHYyMGgtNHoiLz48cmVjdCByeD0iMyIgd2lkdGg9IjkwIiBoZWlnaHQ9IjIwIiBmaWxsPSJ1cmwoI2EpIi8+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkRlamFWdSBTYW5zLFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPjx0ZXh0IHg9IjE5LjUiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5idWlsZDwvdGV4dD48dGV4dCB4PSIxOS41IiB5PSIxNCI+YnVpbGQ8L3RleHQ+PHRleHQgeD0iNjIuNSIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPnBhc3Npbmc8L3RleHQ+PHRleHQgeD0iNjIuNSIgeT0iMTQiPnBhc3Npbmc8L3RleHQ+PC9nPjwvc3ZnPg==" alt="Travis build status" /></a> <a href="https://ci.appveyor.com/project/jooyoungseo/youtubecaption"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDYiIGhlaWdodD0iMjAiIHN0eWxlPSJzaGFwZS1yZW5kZXJpbmc6Z2VvbWV0cmljUHJlY2lzaW9uOyBpbWFnZS1yZW5kZXJpbmc6b3B0aW1pemVRdWFsaXR5OyBmaWxsLXJ1bGU6ZXZlbm9kZDsgY2xpcC1ydWxlOmV2ZW5vZGQiPg0KICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgyPSIwIiB5Mj0iMTAwJSI+DQogICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+DQogICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+DQogIDwvbGluZWFyR3JhZGllbnQ+DQogIDxtYXNrIGlkPSJhIj4NCiAgICA8cmVjdCB3aWR0aD0iMTA2IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPg0KICA8L21hc2s+DQogIDxnIG1hc2s9InVybCgjYSkiPg0KICAgIDxwYXRoIGZpbGw9IiM1NTUiIGQ9Ik0wIDBoNTN2MjBIMHoiLz4NCiAgICA8cGF0aCBmaWxsPSIjNGMxIiBkPSJNNTMgMGg4NHYyMEg1M3oiLz4NCiAgICA8cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJNMCAwaDEwNnYyMEgweiIvPg0KICA8L2c+DQogIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMDQ1LDAsMCwwLjA0NSwwLDEuMDIyNzI3MikiPg0KICAgIDxwYXRoIGZpbGw9IiNjY2MiIGQ9Ik0yNDIgNDhjODYsMCAxNTUsNjkgMTU1LDE1NCAwLDg2IC02OSwxNTUgLTE1NSwxNTUgLTg1LDAgLTE1NCwtNjkgLTE1NCwtMTU1IDAsLTg1IDY5LC0xNTQgMTU0LC0xNTR6bTM4IDE4NGMtMTcsMjIgLTQ4LDI2IC02OSw5IC0yMSwtMTYgLTI0LC00NyAtNywtNjkgMTgsLTIxIDQ5LC0yNSA3MCwtOSAyMSwxNyAyNCw0OCA2LDY5em0tODIgMTAxbDU5IC01N2MtMjIsNSAtNDUsMSAtNjMsLTE0IC0yMSwtMTYgLTMwLC00MyAtMjcsLTY4bC01MyA1OGMwLDAgLTcsLTEzIC05LC0zN2w5MyAtNzNjMjgsLTIwIDY2LC0yMSA5MywwIDMwLDI0IDM2LDY4IDE0LDEwMWwtNjggOTdjLTEwLDAgLTMwLC0zIC0zOSwtN3oiLz4NCiAgPC9nPg0KICA8ZyBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSI+DQoNCiAgICA8dGV4dCB4PSIyMiIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPmJ1aWxkPC90ZXh0Pg0KICAgIDx0ZXh0IHg9IjIyIiB5PSIxNCI+YnVpbGQ8L3RleHQ+DQoNCiAgICA8dGV4dCB4PSI1OCIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPnBhc3Npbmc8L3RleHQ+DQogICAgPHRleHQgeD0iNTgiIHk9IjE0Ij5wYXNzaW5nPC90ZXh0Pg0KICA8L2c+DQo8L3N2Zz4=" alt="AppVeyor build status" /></a> <a href="https://codecov.io/gh/jooyoungseo/youtubecaption?branch=master"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTIiIGhlaWdodD0iMjAiPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiIiB4Mj0iMCIgeTI9IjEwMCUiPgogICAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIgLz4KICAgICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPG1hc2sgaWQ9ImEiPgogICAgICAgIDxyZWN0IHdpZHRoPSIxMTIiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIiAvPgogICAgPC9tYXNrPgogICAgPGcgbWFzaz0idXJsKCNhKSI+CiAgICAgICAgPHBhdGggZmlsbD0iIzU1NSIgZD0iTTAgMGg3NnYyMEgweiIgLz4KICAgICAgICA8cGF0aCBmaWxsPSIjZTA1ZDQ0IiBkPSJNNzYgMGgzNnYyMEg3NnoiIC8+CiAgICAgICAgPHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTAgMGgxMTJ2MjBIMHoiIC8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSI+CiAgICAgICAgPHRleHQgeD0iNDYiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5jb2RlY292PC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjQ2IiB5PSIxNCI+Y29kZWNvdjwvdGV4dD4KICAgICAgICA8dGV4dCB4PSI5MyIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPjAlPC90ZXh0PgogICAgICAgIDx0ZXh0IHg9IjkzIiB5PSIxNCI+MCU8L3RleHQ+CiAgICA8L2c+CiAgICA8c3ZnIHZpZXdCb3g9IjEyMCAtOCA2MCA2MCI+CiAgICAgICAgPHBhdGggZD0iTTIzLjAxMyAwQzEwLjMzMy4wMDkuMDEgMTAuMjIgMCAyMi43NjJ2LjA1OGwzLjkxNCAyLjI3NS4wNTMtLjAzNmExMS4yOTEgMTEuMjkxIDAgMCAxIDguMzUyLTEuNzY3IDEwLjkxMSAxMC45MTEgMCAwIDEgNS41IDIuNzI2bC42NzMuNjI0LjM4LS44MjhjLjM2OC0uODAyLjc5My0xLjU1NiAxLjI2NC0yLjI0LjE5LS4yNzYuMzk4LS41NTQuNjM3LS44NTFsLjM5My0uNDktLjQ4NC0uNDA0YTE2LjA4IDE2LjA4IDAgMCAwLTcuNDUzLTMuNDY2IDE2LjQ4MiAxNi40ODIgMCAwIDAtNy43MDUuNDQ5QzcuMzg2IDEwLjY4MyAxNC41NiA1LjAxNiAyMy4wMyA1LjAxYzQuNzc5IDAgOS4yNzIgMS44NCAxMi42NTEgNS4xOCAyLjQxIDIuMzgyIDQuMDY5IDUuMzUgNC44MDcgOC41OTFhMTYuNTMgMTYuNTMgMCAwIDAtNC43OTItLjcyM2wtLjI5Mi0uMDAyYTE2LjcwNyAxNi43MDcgMCAwIDAtMS45MDIuMTRsLS4wOC4wMTJjLS4yOC4wMzctLjUyNC4wNzQtLjc0OC4xMTUtLjExLjAxOS0uMjE4LjA0MS0uMzI3LjA2My0uMjU3LjA1Mi0uNTEuMTA4LS43NS4xNjlsLS4yNjUuMDY3YTE2LjM5IDE2LjM5IDAgMCAwLS45MjYuMjc2bC0uMDU2LjAxOGMtLjY4Mi4yMy0xLjM2LjUxMS0yLjAxNi44MzhsLS4wNTIuMDI2Yy0uMjkuMTQ1LS41ODQuMzA1LS44OTkuNDlsLS4wNjkuMDRhMTUuNTk2IDE1LjU5NiAwIDAgMC00LjA2MSAzLjQ2NmwtLjE0NS4xNzVjLS4yOS4zNi0uNTIxLjY2Ni0uNzIzLjk2LS4xNy4yNDctLjM0LjUxMy0uNTUyLjg2NGwtLjExNi4xOTljLS4xNy4yOTItLjMyLjU3LS40NDkuODI0bC0uMDMuMDU3YTE2LjExNiAxNi4xMTYgMCAwIDAtLjg0MyAyLjAyOWwtLjAzNC4xMDJhMTUuNjUgMTUuNjUgMCAwIDAtLjc4NiA1LjE3NGwuMDAzLjIxNGEyMS41MjMgMjEuNTIzIDAgMCAwIC4wNC43NTRjLjAwOS4xMTkuMDIuMjM3LjAzMi4zNTUuMDE0LjE0NS4wMzIuMjkuMDQ5LjQzMmwuMDEuMDhjLjAxLjA2Ny4wMTcuMTMzLjAyNi4xOTcuMDM0LjI0Mi4wNzQuNDguMTE5LjcyLjQ2MyAyLjQxOSAxLjYyIDQuODM2IDMuMzQ1IDYuOTlsLjA3OC4wOTguMDgtLjA5NWMuNjg4LS44MSAyLjM5NS0zLjM4IDIuNTM5LTQuOTIybC4wMDMtLjAyOS0uMDE0LS4wMjVhMTAuNzI3IDEwLjcyNyAwIDAgMS0xLjIyNi00Ljk1NmMwLTUuNzYgNC41NDUtMTAuNTQ0IDEwLjM0My0xMC44OWwuMzgxLS4wMTRhMTEuNDAzIDExLjQwMyAwIDAgMSA2LjY1MSAxLjk1N2wuMDU0LjAzNiAzLjg2Mi0yLjIzNy4wNS0uMDN2LS4wNTZjLjAwNi02LjA4LTIuMzg0LTExLjc5My02LjcyOS0xNi4wODlDMzQuOTMyIDIuMzYxIDI5LjE2IDAgMjMuMDEzIDAiIGZpbGw9IiNGMDFGN0EiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgogICAgPC9zdmc+Cjwvc3ZnPg==" alt="Codecov test coverage" /></a> <!-- badges: end --></p>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>Although there exist some R packages tailored for YouTube API (e.g., ‘tuber’), downloading YouTube video subtitle (i.e., caption) in a tidy form has never been a low-hanging fruit. Using ‘youtube-transcript-api’ Python package under the hood, this R package provides users with a convenient way of parsing and converting a desired YouTube caption into a handy tibble data_frame object. Furthermore, users can easily save a desired YouTube caption data as a tidy Excel file without advanced programming background knowledge.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<div id="python-dependencies" class="section level3">
+<h3>Python Dependencies</h3>
+<p><code>youtubecaption</code> requires Anaconda Python environment on your system Path.</p>
+<p>If you have not installed Conda environment on your system, please <a href="https://www.anaconda.com/download/">download and install Anaconda</a> (Python 3.6 or later is recommended).</p>
+<p>For this package, I have employed <a href="https://pypi.org/project/youtube-transcript-api/"><strong>youtube-transcript-api</strong></a> Python module into R using <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a>.</p>
+</div>
+<div id="r-package-installation" class="section level3">
+<h3>R Package Installation</h3>
+</div>
+<div id="development-version" class="section level3">
+<h3>Development Version</h3>
+<p>You can install the latest development version as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(remotes)) {</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">install.packages</span>(<span class="st">&quot;remotes&quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">}</a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;jooyoungseo/youtubecaption&quot;</span>)</a></code></pre></div>
+</div>
+<div id="stable-version" class="section level3">
+<h3>Stable Version</h3>
+<p>You can install the released version of youtubecaption from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">install.packages</span>(<span class="st">&#39;youtubecaption&#39;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="usage" class="section level2">
+<h2>Usage</h2>
+<p>Please use <code>get_caption()</code> function after loading <code>youtubecaption</code> package like below:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(youtubecaption)</a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co"># Let&#39;s get the video caption out of Hadley Wickham&#39;s &quot;You can&#39;t do data science in a GUI&quot;:</span></a>
+<a class="sourceLine" id="cb3-4" title="4">url &lt;-<span class="st"> &quot;https://www.youtube.com/watch?v=cpbtcsGE0OA&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">caption &lt;-<span class="st"> </span><span class="kw">get_caption</span>(url)</a>
+<a class="sourceLine" id="cb3-6" title="6">caption</a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt; # A tibble: 1,420 x 5</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt;    segment_id text                                start duration vid       </span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">#&gt;         &lt;int&gt; &lt;chr&gt;                               &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;     </span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co">#&gt;  1          1 thank you for coming to a meeting ~  7.13     8.32 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">#&gt;  2          2 in regards to data science GUI with 10.7      8.44 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co">#&gt;  3          3 happy with chief data scientist in~ 15.4      7.11 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co">#&gt;  4          4 studio as well as the member of th~ 19.1      7.23 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="co">#&gt;  5          5 Foundation and an attempt professo~ 22.6      6    cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="co">#&gt;  6          6 Stanford and at the University of   26.4      6.48 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="co">#&gt;  7          7 Auckland he builds both computatio~ 28.6      7.17 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-18" title="18"><span class="co">#&gt;  8          8 and cognitive tools to make data s~ 32.8      7.5  cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="co">#&gt;  9          9 easier faster and more times his w~ 35.7      7.01 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="co">#&gt; 10         10 includes various packages as well ~ 40.4      6.21 cpbtcsGE0~</span></a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="co">#&gt; # ... with 1,410 more rows</span></a>
+<a class="sourceLine" id="cb3-22" title="22"></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="co"># Save the caption as an Excel file and open it right it away:</span></a>
+<a class="sourceLine" id="cb3-24" title="24"><span class="kw">get_caption</span>(<span class="dt">url =</span> url, <span class="dt">savexl =</span> <span class="ot">TRUE</span>, <span class="dt">openxl =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
