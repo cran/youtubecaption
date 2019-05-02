@@ -1,7 +1,7 @@
 Package: youtubecaption
 Title: Downloading YouTube Subtitle Transcription in a Tidy 'Tibble'
         Data_Frame
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person(given = "JooYoung",
            family = "Seo",
@@ -21,9 +21,9 @@ Imports: stringr, writexl, reticulate, purrr, magrittr, tibble, dplyr
 RoxygenNote: 6.1.1.9000
 Suggests: knitr, rmarkdown, covr
 NeedsCompilation: no
-Packaged: 2019-04-29 13:56:13 UTC; JooYoung
+Packaged: 2019-05-01 21:29:35 UTC; JooYoung
 Author: JooYoung Seo [aut, cre] (<https://orcid.org/0000-0002-4064-6012>),
   Soyoung Choi [aut] (<https://orcid.org/0000-0002-0998-3352>)
 Maintainer: JooYoung Seo <jooyoung@psu.edu>
 Repository: CRAN
-Date/Publication: 2019-05-01 09:20:04 UTC
+Date/Publication: 2019-05-02 11:30:02 UTC
