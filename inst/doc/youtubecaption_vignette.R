@@ -1,4 +1,4 @@
-## ---- include = FALSE----------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -6,17 +6,17 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  if(!require(remotes)) {
 #  install.packages("remotes")
 #  }
 #  
 #  remotes::install_github("jooyoungseo/youtubecaption")
 
-## ---- eval=FALSE---------------------------------------------------------
+## ---- eval=FALSE--------------------------------------------------------------
 #  install.packages('youtubecaption')
 
-## ----test, eval=FALSE----------------------------------------------------
+## ----test, eval=FALSE---------------------------------------------------------
 #  library(youtubecaption)
 #  
 #  # Let's get the video caption out of Hadley Wickham's "You can't do data science in a GUI":
